@@ -1,8 +1,9 @@
+#include "io.h"
 #include "fb.h"
 
 /* Write a character to the framebuffer */
 void fb_write_cell(unsigned int i, char c, unsigned char fg, unsigned char bg){
-	char *fb = (char *) 0x000B83C0;		//160(10) == A(16) == jedna linia w OS ma 160 bitow? jednostek?
+	char *fb = (char *) 0x000B83C0;		//160(10) == A0(16) == jedna linia w OS ma 160 bitow? jednostek?
 	fb[i*2] = c;
 	fb[i*2 + 1] = ((fg & 0x0F) << 4) | (bg & 0x0F);
 }
