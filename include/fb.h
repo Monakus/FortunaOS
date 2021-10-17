@@ -44,7 +44,7 @@ void fb_move_cursor(unsigned short pos);
 /** fb_write:
 *	Writes the contents of the buffer to the screen
 *
-*	@param buf Pointer to the buffer containing text
+*	@param buf Pointer to the buffer containing the text
 *	@param len Length of the text contained in the buffer
 */
 int fb_write(char *buf, unsigned int len);

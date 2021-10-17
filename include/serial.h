@@ -40,3 +40,29 @@ void serial_configure_baud_rate(unsigned short com, unsigned short divisor);
 * @param com The serial port to configure
 */
 void serial_configure_line(unsigned short com);
+
+/** serial_init:
+ *  Initializes given serial port.
+ *  
+ *  @param com The serial port to initialize
+ *  @param divisor The divisor of the transfer-speed
+ */
+void serial_init(unsigned short com, unsigned short divisor);
+
+/** serial_is_transmit_fifo_empty:
+* Checks whether the transmit FIFO queue is empty or not for the given COM port.
+*
+* @param com    The COM port
+* @return       0 if the transmit FIFO queue is not empty
+*               1 if the transmit FIFO queue is empty
+*/
+int serial_is_transmit_fifo_empty(unsigned int com);
+
+/** serial_write_string:
+*   Writes a string to the given COM port
+* 
+*   @param buf Pointer to the buffer containing the text
+*	@param len Length of the text contained in the buffer
+*   @param com The COM port to write to
+*/
+int serial_write_string(char *buf, unsigned int len, unsigned short com);

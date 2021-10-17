@@ -1,4 +1,5 @@
 #include "fb.h"
+#include "serial.h"
 
 void run(){
 	/*char* c = (char*) 10000;
@@ -6,7 +7,9 @@ void run(){
 	c[1] = 'i';
 
 	fb_write(c, 2);*/
-	fb_write("Ala ma kota", 11);
-	unsigned int cursor_start_pos = 480;
-	fb_move_cursor(cursor_start_pos + 11);
+	// fb_write("Ala ma kota", 11);
+	// unsigned int cursor_start_pos = 480;
+	// fb_move_cursor(cursor_start_pos + 11);
+	serial_init(SERIAL_COM1_BASE, 2);
+	serial_write_string("To jest test", 12, SERIAL_COM1_BASE);
 }
