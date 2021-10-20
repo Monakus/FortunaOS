@@ -11,10 +11,11 @@ u8int cursor_y = 0;
 u8int fb_width = 80; 	//Framebuffer is 80 columnds wide
 u8int fb_height = 25; 	//Framebuffer is 25 rows high
 
-void fb_move_cursor(){
-	u16int cursorLocation = cursor_y * 80 + cursor_x;
+// Moves the cursor forawrd by one column in the framebuffer
+static void fb_move_cursor(){
+	u16int cursorLocation = cursor_y * fb_width + cursor_x;
 	outb(FB_COMMAND_PORT, FB_HIGH_BYTE_COMMAND);		//Setting the high cursor byte
-	outb(FB_DATA_PORT, cursorLocation);					//Send the high cursor byte
+	outb(FB_DATA_PORT, cursorLocation >> 8);			//Send the high cursor byte
 	outb(FB_COMMAND_PORT, FB_LOW_BYTE_COMMAND);			//Setting the low cursor byte
 	outb(FB_DATA_PORT, cursorLocation);					//Send the low cursor byte
 }
@@ -105,5 +106,3 @@ void fb_write(char *buf){
 	while(buf[i])
 		fb_putc(buf[i++], FB_BLACK, FB_WHITE);
 }
-
-

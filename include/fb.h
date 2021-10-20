@@ -28,9 +28,9 @@
 #define FB_LOW_BYTE_COMMAND	    15
 
 /** fb_move_cursor: 
-*	Moves the cursor of the frambuffer to the given position
+*	Moves the cursor forawrd by one column in the framebuffer
 */
-void fb_move_cursor();
+//static void fb_move_cursor();
 
 /** fb_scroll: 
  *  Scrolls the framebuffer if needed
@@ -41,10 +41,10 @@ void fb_scroll();
 *	Writes a character with the fiven foreground and background to position i in the framebuffer.
 *
 *	@param c	The character
-*	@param fg	The foreground color
 *	@param bg	The background color
+*	@param fg	The foreground color
 */
-void fb_putc(char c, unsigned char fg, unsigned char bg);
+void fb_putc(char c, unsigned char bg, unsigned char fg);
 
 /** fb_write: 
 *	Writes the contents of the buffer to the screen.
