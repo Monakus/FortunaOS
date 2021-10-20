@@ -2,14 +2,15 @@
 #include "serial.h"
 
 void run(){
-	/*char* c = (char*) 10000;
-	c[0] = 'H';
-	c[1] = 'i';
 
-	fb_write(c, 2);*/
-	// fb_write("Ala ma kota", 11);
-	// unsigned int cursor_start_pos = 480;
-	// fb_move_cursor(cursor_start_pos + 11);
-	serial_init(SERIAL_COM1_BASE, 2);
-	serial_write_string("To jest test", 12, SERIAL_COM1_BASE);
+	fb_clear();
+	fb_write("To jest testowanko\n");
+	// serial_init(SERIAL_COM1_BASE, 2);
+	// serial_write_string("Ala ma kota", 11, SERIAL_COM1_BASE);
+	fb_write("Po napisaniu do COM1");
+	fb_write("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	fb_write("Test1\n");
+	fb_write("Test2\n");
+	fb_write("Test3\n");
+	fb_write("Test4\nTest5\nTu sie powinno zescrollowac");
 }

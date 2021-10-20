@@ -1,3 +1,6 @@
+#ifndef FB_H
+#define FB_H
+
 // Text colors
 #define FB_BLACK        0
 #define FB_BLUE         1
@@ -22,30 +25,38 @@
 
 /* The I/O port commands */
 #define FB_HIGH_BYTE_COMMAND	14
-#define FB_LOW_BYTE_COMMAND	15
+#define FB_LOW_BYTE_COMMAND	    15
 
-/**  fb_write_cell: 
+/** fb_move_cursor: 
+*	Moves the cursor of the frambuffer to the given position
+*/
+void fb_move_cursor();
+
+/** fb_scroll: 
+ *  Scrolls the framebuffer if needed
+ */
+void fb_scroll();
+
+/** fb_putc: 
 *	Writes a character with the fiven foreground and background to position i in the framebuffer.
 *
-*	@param i	The location in the frambuffer
 *	@param c	The character
 *	@param fg	The foreground color
 *	@param bg	The background color
 */
-void fb_write_cell(unsigned int i, char c, unsigned char fg, unsigned char bg);
+void fb_putc(char c, unsigned char fg, unsigned char bg);
 
-/**  fb_move_cursor:
-*	Moves the cursor of the frambuffer to the given position
-*
-*	@param pos The new position of the cursor
-*/
-void fb_move_cursor(unsigned short pos);
-
-/** fb_write:
-*	Writes the contents of the buffer to the screen
+/** fb_write: 
+*	Writes the contents of the buffer to the screen.
 *
 *	@param buf Pointer to the buffer containing the text
-*	@param len Length of the text contained in the buffer
 */
-int fb_write(char *buf, unsigned int len);
+void fb_write(char *buf);
 
+/** fb_clear
+*   Clear the framebuffer by setting everything to space with black background. 
+*
+*/
+void fb_clear();
+
+#endif
