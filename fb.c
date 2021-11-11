@@ -1,6 +1,7 @@
 #include "io.h"
 #include "fb.h"
 #include "common.h"
+#include "standard.h"
 
 u16int *video_memory = (u16int*) 0xB8000;	//Address of the first cell in the framebuffer
 
@@ -102,6 +103,14 @@ void fb_clear(){
 }
 
 void fb_write(char *buf){
+	int i = 0;
+	while(buf[i])
+		fb_putc(buf[i++], FB_BLACK, FB_WHITE);
+}
+
+void fb_write_dec(int num){
+    char buf[12] = {0};
+    itoa(num, buf, 10);
 	int i = 0;
 	while(buf[i])
 		fb_putc(buf[i++], FB_BLACK, FB_WHITE);

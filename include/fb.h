@@ -53,10 +53,19 @@ void fb_putc(char c, unsigned char bg, unsigned char fg);
 */
 void fb_write(char *buf);
 
+/** fb_write_dec: 
+*	Writes the contents of the buffer to the screen.
+*
+*	@param num Number to convert to text
+*/
+void fb_write_dec(int num);
+
 /** fb_clear
 *   Clear the framebuffer by setting everything to space with black background. 
 *
 */
 void fb_clear();
+
+
 
 #endif
