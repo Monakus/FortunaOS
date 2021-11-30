@@ -1,4 +1,4 @@
-OBJECTS = standard.o io.o fb.o serial.o dt.o descriptor_tables.o interrupt.o isr.o loader.o kmain.o
+OBJECTS = loader.o kmain.o standard.o io.o fb.o serial.o dt.o descriptor_tables.o interrupt.o isr.o timer.o
 CC = gcc
 CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
 CFLAGS += -Iinclude/
@@ -25,4 +25,4 @@ run: os.iso
 	$(AS) $(ASFLAGS) $< -o $@
 
 clean:
-	rm -rf *.o kernel.elf os.iso
+	@rm -rf *.o kernel.elf os.iso

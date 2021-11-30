@@ -1,6 +1,7 @@
 #include "fb.h"
 #include "serial.h"
 #include "descriptor_tables.h"
+#include "timer.h"
 
 int main(){
 	init_descriptor_tables();
@@ -11,8 +12,8 @@ int main(){
 	asm volatile ("int $0x3");
 	asm volatile ("int $0x4");
 
-	fb_write("To dziala, jest pogchamp\n");
-	asm volatile ("int $0x5");
+	asm volatile ("sti");
+	init_timer(50);
 
 	return 0;
 }

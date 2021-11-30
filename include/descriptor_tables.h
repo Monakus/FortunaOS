@@ -2,7 +2,7 @@
 
 void init_descriptor_tables();
 
-// This struct contains the value of one GDT entry
+// This struct contains the value of one GDT entry.
 struct gdt_entry_struct{
    u16int limit_low;           // The lower 16 bits of the limit.
    u16int base_low;            // The lower 16 bits of the base.
@@ -13,7 +13,7 @@ struct gdt_entry_struct{
 } __attribute__((packed));     // Packed so GCC doesn't change the aligment of the bytes
 typedef struct gdt_entry_struct gdt_entry_t;
 
-// Struct to tell the processor where to find the GDT
+// A struct to tell the processor where to find the GDT.
 struct gdt_ptr_struct{
    u16int limit;               // The upper 16 bits of all selector limits.
    u32int base;                // The address of the first gdt_entry_t struct.
@@ -72,3 +72,20 @@ extern void isr28();
 extern void isr29();
 extern void isr30();
 extern void isr31();
+
+extern void irq0 ();
+extern void irq1 ();
+extern void irq2 ();
+extern void irq3 ();
+extern void irq4 ();
+extern void irq5 ();
+extern void irq6 ();
+extern void irq7 ();
+extern void irq8 ();
+extern void irq9 ();
+extern void irq10();
+extern void irq11();
+extern void irq12();
+extern void irq13();
+extern void irq14();
+extern void irq15();
