@@ -115,3 +115,34 @@ void fb_write_dec(int num){
 	while(buf[i])
 		fb_putc(buf[i++], FB_BLACK, FB_WHITE);
 }
+
+// void fb_write_hex2(int num){
+//     char buf[12] = {0};
+//     itoa(num, buf, 16);
+// 	int i = 0;
+// 	while(buf[i])
+// 		fb_putc(buf[i++], FB_BLACK, FB_WHITE);
+// }
+
+void fb_write_hex(u32int n){
+    s32int tmp;
+
+    fb_write("0x");
+
+    char noZeroes = 1;
+    int i;
+    for (i = 28; i > 0; i -= 4){
+        tmp = (n >> i) & 0xF;
+        if (tmp == 0 && noZeroes != 0)
+            continue;
+    
+        if (tmp >= 0xA){
+            noZeroes = 0;
+            fb_putc (tmp-0xA+'a', FB_BLACK, FB_WHITE);
+        }
+        else{
+            noZeroes = 0;
+            fb_putc( tmp+'0', FB_BLACK, FB_WHITE);
+        }
+    }
+}

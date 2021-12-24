@@ -1,6 +1,8 @@
 #ifndef FB_H
 #define FB_H
 
+#include "common.h"
+
 // Text colors
 #define FB_BLACK        0
 #define FB_BLUE         1
@@ -59,6 +61,15 @@ void fb_write(char *buf);
 *	@param num Number to convert to text
 */
 void fb_write_dec(int num);
+
+/** fb_write_hex: 
+*	Writes the contents of the buffer to the screen.
+*
+*	@param num Number to convert to text
+*/
+void fb_write_hex(u32int num);
+
+// void fb_write_hex2(int num);
 
 /** fb_clear
 *   Clear the framebuffer by setting everything to space with black background. 
