@@ -11,14 +11,19 @@ void register_interrupt_handler(u8int n, isr_t handler){
 
 // This gets called from interrupt.s
 void isr_handler(registers_t regs){
-   fb_write("recieved interrupt: ");
-   fb_write_dec(regs.int_no);
-   fb_putc('\n', FB_BLACK, FB_WHITE);
+    // do debugowania
+    fb_write("recieved interrupt: ");
+    fb_write_dec(regs.int_no);
+    fb_putc('\n', FB_BLACK, FB_WHITE);
 
-   if(interrupt_handlers[regs.int_no] != 0){
-      isr_t handler = interrupt_handlers[regs.int_no];
-      handler(regs);
-   }
+    if(interrupt_handlers[regs.int_no] != 0){
+        isr_t handler = interrupt_handlers[regs.int_no];
+        handler(regs);
+    }else{
+        fb_write("unhandled interrupt: ");
+        fb_write_dec(regs.int_no);
+        fb_putc('\n', FB_BLACK, FB_WHITE);
+    }
 }
 
 // This also gets called from interrupt.s
