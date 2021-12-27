@@ -145,4 +145,10 @@ void fb_write_hex(u32int n){
             fb_putc( tmp+'0', FB_BLACK, FB_WHITE);
         }
     }
+
+    tmp = n & 0xF;
+    if (tmp >= 0xA)
+        fb_putc(tmp-0xA+'a', FB_BLACK, FB_WHITE);
+    else
+        fb_putc(tmp+'0', FB_BLACK, FB_WHITE);
 }

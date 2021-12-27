@@ -3,12 +3,15 @@
 
 #include "common.h"
 
-// zamienia int w systemie o podstawie base na string
+// change a number into a string 
 char* itoa(int value, char* result, int base);
 
 void memset(u8int *dest, u8int val, u32int len);
+void memset32(u32int *dest, u32int val, u32int len);
 
-// makra do funkcji, ktore wypisuja bledy
+char *strcpy(char *dest, const char *src);
+
+// macros for functions to write errors
 #define PANIC(msg) panic(msg, __FILE__, __LINE__);
 #define ASSERT(b) ((b) ? (void)0 : panic_assert(__FILE__, __LINE__, #b))
 

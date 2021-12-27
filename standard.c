@@ -31,6 +31,19 @@ void memset(u8int *dest, u8int val, u32int len){
     for (;len != 0; len--) *temp++ = val;
 }
 
+void memset32(u32int *dest, u32int val, u32int len){
+    u32int *temp = (u32int *)dest;
+    for (;len != 0; len--) *temp++ = val;
+}
+
+char *strcpy(char *dest, const char *src){
+    do{
+      *dest++ = *src++;
+    }
+    while (*src != 0);
+    return dest;
+}
+
 extern void panic(char *message, char *file, u32int line)
 {
     // We encountered a massive problem and have to stop.

@@ -11,7 +11,7 @@ void register_interrupt_handler(u8int n, isr_t handler){
 
 // This gets called from interrupt.s
 void isr_handler(registers_t regs){
-    // do debugowania
+    // debugging
     fb_write("recieved interrupt: ");
     fb_write_dec(regs.int_no);
     fb_putc('\n', FB_BLACK, FB_WHITE);

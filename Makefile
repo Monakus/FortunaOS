@@ -1,6 +1,7 @@
-OBJECTS = loader.o kmain.o kheap.o paging.o standard.o io.o fb.o serial.o dt.o descriptor_tables.o interrupt.o isr.o timer.o
+OBJECTS = loader.o kmain.o standard.o io.o fb.o serial.o dt.o descriptor_tables.o interrupt.o isr.o timer.o kheap.o paging.o ordered_array.o
 CC = gcc
-CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -Wno-unused-variable -Wno-unused-function -c
+CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Wextra -Werror \
+-Wno-unused-variable -Wno-unused-function -Wno-parentheses -Wno-sign-compare -Wno-int-conversion -Wno-incompatible-pointer-types -c
 CFLAGS += -Iinclude/
 LDFLAGS = -T link.ld -melf_i386
 AS = nasm
