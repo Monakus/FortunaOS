@@ -5,7 +5,7 @@ An operating system made based on:
 * [The little book about OS development](https://littleosbook.github.io/)
 * [JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/)
 
-# General info
+## General info
 FortunaOS is a simple operating system made as an university project.
 Unfortunately I couldn't get multitasking to work so the system is incomplete.
 Still, it has got:
@@ -17,14 +17,14 @@ Still, it has got:
 * [x] Heap
 
 
-# Technologies
+## Technologies
 The project was created using:
 * GCC
 * NASM
 * Makefile
 
-# Setup
-I've emulated the system using [Bochs](https://bochs.sourceforge.io/)
+## Setup
+I've emulated the system using [Bochs](https://bochs.sourceforge.io/).
 
 To compile and run the project use:
 ```shell
